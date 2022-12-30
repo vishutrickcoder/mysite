@@ -1,0 +1,45 @@
+{% extends 'food/base.html' %}
+
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width , initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Food App</title>
+  </head>
+  <body>
+ {% block content %}
+    {% for item in list%}
+        <div class="row mt-4">
+            <div class="col-md-3 offset-md-2">
+                <img class="card-body" height="150px" src="{{item.item_image}}">
+                {% comment %} <img src="{{item.item_image}}" height="150px" class="card-body" alt=""> {% endcomment %}
+            </div>
+            <div class="col-md-4 ">
+                <h2>{{ item.item_name}} </h2>
+                <h4>{{ item.item_desc}} </h4>                         
+                <h5>${{ item.item_price}} </h5>                         
+                <h6>{{ item.user_name }}</h6>
+            </div>
+            <div class="col-md-2">
+              <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% comment %}
+Old Code
+<ul>
+      <li>
+        <a href="{% url 'food:detail' item.id %}">
+          {{item.id}} -- {{item.item_name}} -- {{item.item_price}}</a
+        >
+      </li>
+    </ul>
+
+ {% endcomment %}
+  </body>
+</html>

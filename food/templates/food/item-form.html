@@ -1,0 +1,30 @@
+{% extends 'food/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class='row'>
+        <div class='col-md-3 text-center offset-md-4'>
+            <div class='card'>
+                <div class='card-header text-white bg-secondary'>
+                    <div class='card-title'>
+                        Add Item
+                    </div>
+                </div>
+
+                <div class='card-body'>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% comment %} {{form}} {% endcomment %}
+                          <div class="mb-2">
+                            {{form}}
+                          </div>
+                        <button type='submit' class='btn btn-info'>Add</button> 
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
